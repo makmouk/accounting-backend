@@ -23,12 +23,12 @@ export class ItemsService {
     return this.itemModel.findOne({ _id: id }).exec();
   }
 
-  async update(id: number, updateItemDto: UpdateItemDto) {
+  async update(id: string, updateItemDto: UpdateItemDto) {
     await this.itemModel.updateOne({ _id: id }, updateItemDto).exec();
     return 'success';
   }
 
-  async remove(id: number) {
+  async remove(id: string) {
     await this.itemModel.deleteOne({ _id: id }).exec();
     return 'Success';
   }
