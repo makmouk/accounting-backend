@@ -73,6 +73,9 @@ export class OffersService {
         { $count: 'count' },
       ])
       .exec();
-    return result.length > 0 && result[0].count === offerIds.length;
+    return (
+      (result.length > 0 && result[0].count === offerIds.length) ||
+      !offerIds.length
+    );
   }
 }
